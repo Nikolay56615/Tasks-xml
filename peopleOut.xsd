@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="people">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="person" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="firstName"/>
+              <xs:element type="xs:string" name="familyName"/>
+              <xs:element type="xs:string" name="gender" minOccurs="0"/>
+              <xs:element name="brothers" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="brother" maxOccurs="unbounded" minOccurs="0" type="xs:IDREF"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="sisters" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="sister" maxOccurs="unbounded" minOccurs="0" type="xs:IDREF"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="sons" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="son" maxOccurs="unbounded" minOccurs="0" type="xs:IDREF"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="daughters" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="daughter" maxOccurs="unbounded" minOccurs="0" type="xs:IDREF"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute type="xs:ID" name="id" use="required"/>
+            <xs:attribute type="xs:IDREF" name="mother"/>
+            <xs:attribute type="xs:IDREF" name="father"/>
+            <xs:attribute type="xs:IDREF" name="wife"/>
+            <xs:attribute type="xs:IDREF" name="husband"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+
+  </xs:element>
+</xs:schema>
